@@ -11,9 +11,10 @@ class timet{
 		int getMinute() const;
 		int getSecond() const;
 
+		//friend timet operator+(timet t, int h);
 		timet operator+(int h);	
 		timet operator++(int dummy);
-		timet& operator=(timet& from);
+		timet& operator=(timet from);
 		timet operator()(int h, int m);
 
 		friend ostream& operator<<(ostream& out, timet& t);

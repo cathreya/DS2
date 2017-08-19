@@ -1,26 +1,7 @@
 //fraction.h
+#include <iostream>
+using namespace std;
 class fraction{
-	public:
-		fraction();
-		fraction(int n, int d);
-		void display();
-		inline bool isZero(){ 
-			return denom == 1 && num ==0;
-		}
-		inline bool isOne(){ 
-			return denom == 1 && num == 1;
-		}
-		inline bool isInt(){ 
-			return denom == 1;
-		}
-		static int getOneFrac();
-		static int getZeroFrac();
-		int floor();
-		int ceiling();
-		
-		friend int compare(int i, fraction r);
-		friend int compare(fraction r, int i);
-		int compare(int i);
 	private:
 		fraction makeFraction (int n, unsigned d){
 			fraction ans;
@@ -28,9 +9,51 @@ class fraction{
 			ans.denom = d;
 			return ans;
 		}
-		static unsigned int oneFrac;
-		static unsigned int zeroFrac;
-		int num,
+		int findGcd(int a, int b) const;
+		void decrementZero();
+		void incrementZero();
+		void incrementOne();
+		void decrementOne();
+		int num;
 		unsigned int denom;
+		static int oneFrac;
+		static int zeroFrac;
+	public:
+		fraction();
+		fraction(int n, int d);
+		inline void display() const{
+			cout<<num<<"/"<<denom<<endl;
+		}
+		inline bool isZero() const{ 
+			return denom == 1 && num ==0;
+		}
+		inline bool isOne() const{ 
+			return denom == 1 && num == 1;
+		}
+		inline bool isInt() const{ 
+			return denom == 1;
+		}
+		inline bool isProper() const{
+			return abs(num)<=denom;
+		}
+		static int getOneFrac();
+
+		static int getZeroFrac();
+
+		int floor() const;
+		int ceiling() const;
+		
+		//friend int compare(int i, fraction r);
+		friend int compare(int* i, fraction* r);
+		friend int compare(int& i, fraction& r);
+		//friend int compare(fraction r, int i);
+		friend int compare(fraction* r, int* i);
+		friend int compare(fraction& r, int& i);
+		int compare(int i) const;
+		~fraction();
+		
 };
-int compare(int i, int j);
+//int compare(int i, int j);
+int compare(int* i, int* j);
+int compare(int& i, int& j);
+

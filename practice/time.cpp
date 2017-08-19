@@ -39,10 +39,24 @@ timet timet::operator+(int h){
 		return copied;
 	}
 	else{
-		timet copied(tmpHour,minute,second);
+		timet copied(tmpHour+h,minute,second);
 		return copied;
 	}
 }
+/*
+timet operator+(timet t,int h){
+	int tmpHour = t.hour;
+	if(tmpHour + h > 23){
+		tmpHour = (tmpHour + h)%24;
+		timet copied(tmpHour,0,0);
+		return copied;
+	}
+	else{
+		timet copied(tmpHour+h,t.minute,t.second);
+		return copied;
+	}
+}
+*/
 
 timet timet::operator++(int dummy){
 	timet tmp = *this;
@@ -61,7 +75,7 @@ timet timet::operator++(int dummy){
 	return tmp;
 }
 
-timet& timet::operator=(timet &from){
+timet& timet::operator=(timet from){
 	hour = from.hour;
 	minute = from.minute;
 	second = from.second;
@@ -74,12 +88,19 @@ timet timet::operator()(int h, int m){
 		tmpMin = (tmpMin+m)%59;
 		tmpHour+=1;
 	}
+	else{
+		tmpMin = tmpMin+m;
+	}
 	if(tmpHour+h > 23){
 		tmpHour = (tmpHour+h)%23;
+	}
+	else{
+		tmpHour = tmpHour+h;
 	}
 	timet copied(tmpHour,tmpMin,0);
 	return copied;
 }
+
 
 ostream& operator<<(ostream& out, timet &t ){
 	out<<t.hour<<':'<<t.minute<<'\n';

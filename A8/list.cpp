@@ -45,14 +45,14 @@ void List<T>::push_back(T obj){
 }
 
 template <class T>
-List<T>::Node* List<T>::find_address(T obj){
+List<T>::iterator1 List<T>::find_address(T obj){
 	Node* tmp;
 	while(tmp != NULL){
 		if(tmp->data == obj){
-			return tmp;
+			return iterator1(tmp);
 		}
 	}
-	return NULL;
+	return iterator1();
 }
 
 template <class T>
@@ -63,3 +63,39 @@ void List<T>::display(){
 	}
 	cout<<endl;
 }
+
+// template <class T>
+// List<T>::iterator1::iterator1(){
+// 	address = NULL;
+// }
+// template <class T>
+// List<T>::iterator1::iterator1(const List<T>::Node* a){
+// 	address = a;
+// }
+// template <class T>
+// List<T>::iterator1::iterator1(const iterator1& from){
+// 	address = from.address;
+// }
+// template <class T>
+// iterator1  List<T>::iterator1::operator=(const iterator1& from){
+// 	address = from.address;
+// }
+// template <class T>
+// iterator1  List<T>::iterator1::operator++(){
+// 	address++;
+// 	return *this;
+// }
+// template <class T>
+// iterator1  List<T>::iterator1::operator++(int dummy){
+// 	iterator1 tmp = *this;
+// 	address++;
+// 	return tmp;
+// }
+// template <class T>
+// iterator1& List<T>::iterator1::operator*(){
+// 	return *address;
+// }
+// template <class T>
+// iterator1  List<T>::iterator1::begin() const{
+// 	return List<T>.front;
+// }

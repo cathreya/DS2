@@ -20,5 +20,9 @@ int main(){
 	cout<<s3.getCount()<<endl;
 	s4 = s5;
 	cout<<s3.getCount()<<endl;
+	if(1){
+		refxyz stmp = s3;
+	}
+
 	return 0;
 }

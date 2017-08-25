@@ -39,8 +39,12 @@ class refxyz{
 		}
 		void exterminate(){
 			if(ptr->count == 0){
+				cout<<"Memory Cleared as count = 0\n";
 				delete ptr;
 				ptr = NULL;
+			}
+			else{
+				cout<<"Memory not cleared as count: "<<ptr->count<<endl;
 			}
 		}
 		unsigned int getCount(){

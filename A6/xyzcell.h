@@ -15,7 +15,7 @@ class cell{
 		unsigned int count;
 		timet *objptr;
 		~cell(){
-			delete[] objptr;
+			delete objptr;
 		}
 };
 

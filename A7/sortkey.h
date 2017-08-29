@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+#include <iomanip>
+#include <stdlib.h>
 #include <vector>
 #include <sstream>
 #include <fstream>
@@ -21,6 +23,16 @@ class mysort{
 		mysort(string filename){
 			string s;
 			ifstream ifs;
+			try{
+				if(filename.substr(filename.length()-3) != "txt"){
+					throw 404;
+				}	
+			}
+			catch(int e){
+				cout<<"Error: "<<e<<" File Not TXT\n";
+				exit(0);
+			}
+			
 			ifs.open(filename.c_str());
 			if(!ifs.is_open() || !ifs.good()){
 				cout<<"Problem opening file\n";

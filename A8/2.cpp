@@ -13,6 +13,6 @@ int main(){
 	l.display();
 	l.remove(90);
 	l.display();
-	l.remove_n(3);
+	l.remove_n(8);
 	l.display();
 }

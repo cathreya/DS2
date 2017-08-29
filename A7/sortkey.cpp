@@ -16,6 +16,15 @@ void mysort::sortl(){
 
 void mysort::write(string filename){
 	ofstream of;
+	try{
+		if(filename.substr(filename.length()-3) != "txt"){
+			throw 404;
+		}	
+	}
+	catch(int e){
+		cout<<"Error: "<<e<<" File Not TXT\n";
+		exit(0);
+	}
 	of.open(filename.c_str());
 	if(!of.is_open() || !of.good()){
 		cout<<"NOT FOUND\n";

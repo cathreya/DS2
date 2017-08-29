@@ -1,4 +1,5 @@
 
+
 #ifndef LIST_H
 #define LIST_H
 template <class T>
@@ -73,7 +74,7 @@ class List{
 			tmp->next = location->next;
 			location->next->prev = tmp;
 			location->next=tmp;
-
+			size+=1;
 		}
 
 		void remove(T obj){
@@ -82,13 +83,11 @@ class List{
 				return;
 			}
 			del(tmp);
-			//cout<<"OK TILL HERE\n";
 		}
 
 		void remove_n(int n){
-			n = n>size?size:n;
 			Node* tmp = front->next;
-			while(n--){
+			while(n-- && size>0){
 				del(tmp);
 				tmp = tmp->next;
 			}

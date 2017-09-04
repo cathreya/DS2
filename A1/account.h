@@ -1,5 +1,3 @@
-//A1: Learning Classes, Objects, Constructor using Bank money transfer and planar geometry applications
-
 class account{ 
 	public:
 		account(){

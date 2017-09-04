@@ -8,6 +8,14 @@ using namespace std;
 #include <string.h>
 #ifndef SORTKEY_H
 #define SORTKEY_H
+
+class notTxtException{
+public:
+	virtual const string what() const throw(){
+		return "The file is not a .txt\n";
+	}
+};
+
 class mysort{
 	public:
 		mysort(){}		
@@ -23,23 +31,22 @@ class mysort{
 		mysort(string filename){
 			string s;
 			ifstream ifs;
+			notTxtException txtExcept;
 			try{
 				if(filename.substr(filename.length()-3) != "txt"){
-					throw 404;
-				}	
+					throw txtExcept;
+				}
+				ifs.open(filename.c_str());
+				if(!ifs.is_open() || !ifs.good()){
+					cout<<"Problem opening file\n";
+				}
+				while(getline(ifs,s)){ 
+					lines.push_back(s);
+				}
 			}
-			catch(int e){
-				cout<<"Error: "<<e<<" File Not TXT\n";
-				exit(0);
-			}
-			
-			ifs.open(filename.c_str());
-			if(!ifs.is_open() || !ifs.good()){
-				cout<<"Problem opening file\n";
-			}
-			while(getline(ifs,s)){ 
-				lines.push_back(s);
-			}
+			catch(notTxtException e){
+				cout<<e.what();
+			}			
 		}
 		void addLine(string line){
 			this->lines.push_back(line);

@@ -19,8 +19,9 @@ int main(){
 	circlePtr = &circ;
 	conePtr = &cone1;
 	
-	
-	//cout<<findVol(circlePtr)<<endl;
+	circlePtr->displayShape();
+	conePtr->displayShape();
+	cout<<findVol(circlePtr)<<endl;
 	cout<<findVol(conePtr)<<endl;
  	
 

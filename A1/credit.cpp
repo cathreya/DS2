@@ -16,6 +16,7 @@ int main(){
 	cout<<"Withdrawing 200000\n";
 	raju.withdraw(200000);
 	display(raju);
+
 	cout<<"Changing status to B\n";
 	raju.putCreditStatus('B');
 	cout<<"Withdrawing 200000\n";
@@ -23,6 +24,7 @@ int main(){
 	cout<<"Withdrawing 20000\n";
 	raju.withdraw(20000);
 	display(raju);
+
 	cout<<"Changing status to C\n";
 	raju.putCreditStatus('C');
 	cout<<"Withdrawing 200000\n";

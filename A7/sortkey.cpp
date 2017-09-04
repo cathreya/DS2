@@ -16,23 +16,24 @@ void mysort::sortl(){
 
 void mysort::write(string filename){
 	ofstream of;
+	notTxtException txtExcept;
 	try{
 		if(filename.substr(filename.length()-3) != "txt"){
-			throw 404;
+			throw txtExcept;
+		}
+		of.open(filename.c_str());
+		if(!of.is_open() || !of.good()){
+			cout<<"NOT FOUND\n";
+		}
+		else{
+			for(int i=0;i<lines.size();i++){
+				of<<lines[i]<<'\n';
+			}
 		}	
 	}
-	catch(int e){
-		cout<<"Error: "<<e<<" File Not TXT\n";
-		exit(0);
+	catch(notTxtException e){
+		cout<<e.what();
 	}
-	of.open(filename.c_str());
-	if(!of.is_open() || !of.good()){
-		cout<<"NOT FOUND\n";
-	}
-	else{
-		for(int i=0;i<lines.size();i++){
-			of<<lines[i]<<'\n';
-		}
-	}
+	
 }
 

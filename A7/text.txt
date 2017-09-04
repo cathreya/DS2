@@ -1,4 +1,4 @@
-1010 Ravi A 
-1001 Mala S 
-1016 Leela B 
-1014 John C 
+1010,Ravi,A 
+1001,Mala,S 
+1016,Leela,B 
+1014,John,C 

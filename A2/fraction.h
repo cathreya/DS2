@@ -1,5 +1,6 @@
 //fraction.h
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 class fraction{
 	private:
@@ -35,7 +36,7 @@ class fraction{
 		}
 		inline bool isProper() const{
 			return abs(num)<=denom;
-		}
+ 		}
 		static int getOneFrac();
 
 		static int getZeroFrac();

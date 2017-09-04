@@ -21,7 +21,7 @@ int main(){
 	
 	circlePtr->displayShape();
 	cylPtr->displayShape();
-	//cout<<findVol(circlePtr)<<endl;
+	cout<<findVol(circlePtr)<<endl;
 	cout<<findVol(cylPtr)<<endl;
  	
 

@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <iostream>
 #include <stdlib.h>
+#include <limits.h>
 
 
 #ifndef BST_H

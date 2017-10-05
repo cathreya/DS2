@@ -1,5 +1,5 @@
 #include <iostream>
-#include "treetask.h"
+#include "tree.h"
 
 using namespace std;
 
@@ -32,5 +32,4 @@ int main(){
 	else{
 		cout<<"Not Found\n";
 	}
-	cout<<bst.leafCount()<<endl;
 }

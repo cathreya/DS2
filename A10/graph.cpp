@@ -6,6 +6,7 @@ using namespace std;
 
 Graph::Graph(int n){
 	G = vector<vector<int> > (n+1);
+	visited = vector<bool> (n+1,0);
 }
 
 Graph::Graph(vector<vector<int> > source){
@@ -15,7 +16,7 @@ Graph::Graph(vector<vector<int> > source){
 }
 
 void Graph::dfs(int source){
-	vector<bool> visited(G.size(),0);
+//	vector<bool> visited(G.size(),0);
 	stack<int> stk;
 	stk.push(source);
 	while(!stk.empty()){
@@ -34,7 +35,7 @@ void Graph::dfs(int source){
 }
 
 void Graph::bfs(int source){
-	vector<bool> visited(G.size(),0);
+//	vector<bool> visited(G.size(),0);
 	queue<int> que;
 	visited[source]= true;
 	visit(source);

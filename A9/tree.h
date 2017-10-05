@@ -1,7 +1,7 @@
 #include <cstddef>
 #include <iostream>
 #include <stdlib.h>
-
+#include <climits>
 
 #ifndef BST_H
 #define BST_H
